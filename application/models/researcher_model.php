@@ -96,6 +96,7 @@ class Researcher_model extends CI_Model {
 		// Study information
 		$data = array(
 			'description' => $study_description,
+			'db_name' => 'TBD', // will be updated as soon as the study_id is defined
 			'study_name' => $study_name,
 			'creator_id' => $user_id,
 			'created' => time(),
@@ -176,7 +177,7 @@ class Researcher_model extends CI_Model {
 		$this->dbforge->set_database($this->load->database('aware_dashboard', TRUE));
 
 		// Insert study config
-		$this->db->insert('studies_configurations', array('study_id' => $study_id, 'config' => '[]'));
+		$this->db->insert('studies_configurations', array('study_id' => $study_id, 'config' => '[]', 'edited' => 0));
 		$this->db->insert('studies_privileges', $data);
 
 		// Create study user for MQTT server

@@ -204,6 +204,7 @@ foreach( $removed_columns as $column ) {
 				} else {
 					$sql = substr($sql, 0, strlen($sql)-2);
 				}
+                $sql = str_replace("text default ''", "text", $sql);
 				
 				$query = 'CREATE TABLE IF NOT EXISTS `'.$table.'` ('.$sql.')';
 				echo $query;
