@@ -43,7 +43,7 @@
          */
         function create_hash( $password )
         {
-            $salt = base64_encode( random_bytes( PBKDF2::PBKDF2_SALT_BYTES ) );
+            $salt = base64_encode( mcrypt_create_iv( PBKDF2::PBKDF2_SALT_BYTES, MCRYPT_DEV_URANDOM ) );
             return "PBKDF2$".PBKDF2::PBKDF2_HASH_ALGORITHM . "$" . PBKDF2::PBKDF2_ITERATIONS . "$" .  $salt . "$" .
                 base64_encode( $this->hash(
                     PBKDF2::PBKDF2_HASH_ALGORITHM,
