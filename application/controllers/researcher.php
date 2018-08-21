@@ -384,7 +384,6 @@ class Researcher extends CI_Controller {
 		$study_id = $this->input->post('study_id', true);
 		if($this->Researcher_model->check_study_privileges($study_id, $this->session->userdata('id')) || $this->session->userdata('manager')){
 			$config = str_replace(',', ';', $this->input->post('config', true));
-			error_log("new study config: $config");
 			$success = $this->Researcher_model->update_study_config($study_id, $config);
 			
 			$this->output->set_output(json_encode($success));
