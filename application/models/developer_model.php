@@ -151,6 +151,8 @@ class Developer_model extends CI_Model {
 		$query = $this->db->get();
 		
 		$row = $query->row();
+		error_log("insert_developer_plugin:");
+        error_log(json_encode($row));
 		$study_id = $row->id;
 		return $study_id;
 	}

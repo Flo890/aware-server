@@ -814,6 +814,8 @@ class Developer extends CI_Controller {
 						'type' => $data_type
 					);
 					// insert the data to developer_plugins table and return the new id
+                    error_log("data to insert: ");
+                    error_log(json_encode($plugin_data));
 					$plugin_id = $this->Developer_model->insert_developer_plugin($plugin_data);
 				}
 				else {
