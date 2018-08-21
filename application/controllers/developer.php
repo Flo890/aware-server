@@ -811,7 +811,9 @@ class Developer extends CI_Controller {
 						'desc' => $data_description,
 						'status' => '0',
 						'repository' => $data_repository,
-						'type' => $data_type
+						'type' => $data_type,
+                        'iconpath' => 'tbd',
+                        'package' => 'tbd'
 					);
 					// insert the data to developer_plugins table and return the new id
                     error_log("data to insert: ");
