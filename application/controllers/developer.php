@@ -802,6 +802,7 @@ class Developer extends CI_Controller {
 				}
 				// if a new plugin
 				if ($plugin_id == "0") {
+				    error_log("is new plugin. line 805");
 					$plugin_data = array(
 						'creator_id' => $this->session->userdata('id'),
 						'created_date' => time(),
@@ -816,6 +817,7 @@ class Developer extends CI_Controller {
 					$plugin_id = $this->Developer_model->insert_developer_plugin($plugin_data);
 				}
 				else {
+				    error_log("is not new plugin. line 820");
 					$plugin_data = $this->Developer_model->get_plugin_data($plugin_id);
 				}
 				
@@ -887,7 +889,9 @@ class Developer extends CI_Controller {
 					
 				);
 
+				error_log("will insert plugin. line 892");
 				$this->Developer_model->insert_plugin_data($data);
+				error_log("inserted plugin. line 894");
 
 				// upload files
 				if (!file_exists('./uploads/'.md5($this->session->userdata('google_id')).'/'.$plugin_id.'/')) {
