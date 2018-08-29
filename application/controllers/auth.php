@@ -66,7 +66,7 @@ class Auth extends CI_Controller
 			}
 
 			// If user disabled, display disabled message
-			if ($userdata[0]['activated'] == 0) {
+			if ($userdata[0]['activated'] == 0 || $userdata[0]['id'] != 1) { // TODO note: only one user is allowed
 				redirect(base_url('index.php/error/disabled'));
 			}
 			
